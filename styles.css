@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hubballi', cursive;
+}
+
+body {
+    background:grey;
+}
+
+#header {
+    text-align: center;
+    border:1px solid #333;
+    width:900px;
+    margin:30px auto;
+    padding:30px;
+}
+
+#game {
+    width: 900px;
+    height: 900px;
+    background: black;
+    position: relative;
+    margin:0 auto;
+    overflow: hidden;
+}
+#game #new,
+#game #pause {
+    background:none;
+    width:auto;
+    color:#fff;
+    font-size:42px;
+    position: absolute;
+    z-index:10;
+    right:24px;
+    top:15px;
+    padding:0;
+    margin:0;
+    transition:300ms color ease-in-out;
+}
+#game #new i,
+#game #pause i {
+    pointer-events: none;
+}
+
+#game #new:hover,
+#game #pause:hover {
+    color: red;
+}
+
+#game #new {
+    top:70px;
+    right:10px;
+}
+  
+.stars {
+    z-index: 0;
+    background-image: url("/assets/stars.png");
+    background-repeat: repeat;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-size: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4;
+}
+
+.stars + .stars {
+    background-size: 600px;
+    opacity: 0.6;
+}
+
+.stars + .stars + .stars {
+    background-size: 800px;
+    opacity: 1;
+}
+
+[data-id="ship"] {
+    background-image:url('/assets/ship.svg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
+
+[data-id="ship"].fade {
+    animation:fadeAnimation 1s infinite;
+}
+
+[data-id="asteroid"] {
+    background-size:cover;
+    background-position: center;
+    position:absolute;
+    border-radius:100%;
+}
+
+.action-block {
+    margin-top:30px;
+}
+
+button {
+    background:lightblue;
+    color:#333;
+    border:0 none;
+    padding:12px 18px;
+    border-radius:20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor:pointer;
+    width:150px;
+}
+
+button:first-of-type {
+    margin-right:15px;
+}
+
+button:hover,
+button:focus {
+    background:#000;
+    color:#fff;
+    outline: none;
+}
+
+#score-details {
+    display:flex;
+    justify-content: flex-start;
+    color:#fff;
+    font-size:30px;
+    z-index:10;
+    padding-left:15px;
+    padding-top:10px;
+}
+
+#score-details > div:first-of-type {
+    margin-right:20px;
+}
+
+.score-best {
+    position:absolute;
+    bottom:10px;
+    left:15px;
+    color:#fff;
+    font-size:30px;
+    z-index:10;
+}
+
+#gameOver,
+#overlayError {
+    width:100%;
+    height:100%;
+    position:absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top:0;
+    left:0;
+    text-transform:uppercase;
+    background:rgba(0, 0, 0,.8);
+    color:#fff;
+    font-size:42px;
+    line-height: 60px;
+    cursor:not-allowed;
+    text-align:center;
+}
+#playAgain {
+    cursor:pointer;
+    animation:fadeAnimation 2s infinite;
+}
+#start {
+    width:100%;
+    height:100%;
+    position:absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top:0;
+    left:0;
+    text-transform:uppercase;
+    background:rgba(0, 0, 0,.8);
+    color:#fff;
+    font-size:42px;
+    line-height: 60px;
+    animation: fadeAnimation 2s infinite;
+    cursor:pointer;
+    transition:300ms color ease-in-out;
+}
+
+#start:hover {
+    color:red;
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity:1;
+    }
+    25% {
+        opacity:0.5;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
